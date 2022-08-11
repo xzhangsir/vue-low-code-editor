@@ -1,0 +1,198 @@
+.editor{
+  width: 100%;
+  height: 100%;
+  &-left,&-right{
+    position: absolute;
+    width: 270px;
+    top:0;
+    bottom: 0;
+    border:1px solid #ddd;
+  }
+  &-left{
+    left:0;
+    &-item{
+      width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom:1px solid #eee;
+      padding:20px 10px;
+      box-sizing: border-box;
+      cursor: move;
+      user-select: none;
+      min-height: 100px;
+      position: relative;
+      > span{
+        position: absolute;
+        top:0;
+        left:0;
+        background: rgb(31, 133, 206);
+        color:#fff;
+      }
+      &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom:0;
+        right:0;
+        background: #ccc;
+        opacity: 0.1;
+      }
+    }
+  }
+  &-right {
+    right: 0;
+  }
+  &-top{
+    position: absolute;
+    right:280px;
+    left:280px;
+    height: 80px;
+    border: 1px solid #ddd;
+  }
+  &-container{
+    padding:80px 270px 0;
+    height:100%;
+    box-sizing: border-box;
+    
+    &-canvas{
+      overflow: scroll;
+      height: 100%;
+      &-content{
+        margin:20px auto;
+        border: 1px solid #ddd;
+        position: relative;
+      }
+    }
+  }
+}
+.editor-block{
+  position: absolute;
+  &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+}
+.editor-block-focus{
+  &::after{
+    border: 1px dashed #f00;
+  }
+}
+.editor-block-preview{
+  &::after {
+    display: none;
+  }
+}
+
+.line-x{
+  position: absolute;
+  top:0;
+  bottom:0;
+  border-left: 1px dashed #f00;
+}
+
+.line-y {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed #f00;
+}
+
+
+// dropdown
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 2px 2px #ccc;
+}
+
+.dropdown-isShow {
+  display: block;
+}
+
+.dropdown-item {
+  line-height: 30px;
+  width: 100px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+}
+
+// 区间
+.range {
+  display: inline-flex;
+  width: 220px;
+  min-height: 30px;
+  align-items: center;
+
+  input {
+    flex: 1;
+    width: 100%;
+  }
+
+  span {
+    margin: 0 4px;
+    display: inline-flex;
+  }
+}
+
+// 放大缩小
+.block-resize {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(15, 65, 204);
+  z-index: 1000;
+  user-select: none;
+}
+
+.block-resize-top {
+  top: -4px;
+  left: calc(50% - 4px)
+}
+
+.block-resize-bottom {
+  bottom: -4px;
+  left: calc(50% - 4px)
+}
+
+.block-resize-left {
+  top: calc(50% - 4px);
+  left: -4px;
+}
+
+.block-resize-right {
+  top: calc(50% - 4px);
+  right: -4px;
+}
+
+.block-resize-top-left {
+  top: -4px;
+  left: -4px;
+}
+
+.block-resize-top-right {
+  top: -4px;
+  right: -4px;
+}
+
+.block-resize-bottom-left {
+  bottom: -4px;
+  left: -4px;
+}
+
+.block-resize-bottom-right {
+  bottom: -4px;
+  right: -4px;
+}
+
+.el-button,
+.el-input {
+  transition: none;
+}
